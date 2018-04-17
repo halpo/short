@@ -1,0 +1,131 @@
+# short
+
+[![Build Status](https://travis-ci.org/haplo/short.svg?branch=master)](https://travis-ci.org/tidyverse/pivot)
+<!--[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/pivot)](https://cran.r-project.org/package=short)-->
+
+# Overview
+
+The `short` package gives several shortcuts to common functionality.
+
+# `using` - easy loading packages
+
+The `using` function is a simpler way of specifying multiple packages to 
+load.  It additionally will attempt to download and install the packages
+if not already installed.
+
+
+# `table_1` - Table 1 Demographics and Summaries
+
+The `table_1` function can be used to generate a demographics and summary
+of variables; i.e. the veritable "Table 1" for publications.
+For each variable given, `table_1` calls `summarise_table_1` which 
+will summarise the variable for each value of a key, diferentiating 
+variable, as well as overall.  For character and factor variables, 
+the counts and percentages of each level is given.
+For logical variables, the count of positives and the percentage is 
+given as the value.  Numeric Variables are summarised by the minimum, 
+median, mean, maximum, and standard deviation.
+
+Additional methods for table_1 can be added by adding methods to 
+`summarise_table_1`
+
+### Example
+
+```{r table_1_example, df_print='kable'}
+library(tidyverse)
+mtcars %>% 
+    mutate( gear = ordered(paste(gear, 'Gears'))
+          , cyl  = ordered(paste(cyl, 'Cylinders'))
+          ) %>% 
+    table_1( cyl
+           , 'Automatic Transmission' = am == 0
+           , 'Number of gears' = gear
+           , Horsepower = hp
+           )
+```
+
+
+# `with_margins` - add marginals to and computation.
+
+The `with_margins` function converts another function to opperate over 
+all possible subsets of groups, including no groups.
+
+### Example
+
+```{r with_margins_example}
+mtcars %>% 
+    mutate( gear = ordered(paste(gear, 'Gears'))
+          , cyl  = ordered(paste(cyl, 'Cylinders'))
+          ) %>%
+    group_by(gear, cyl) %>% 
+    with_margins(summarise_at)( vars(mpg, disp, hp, wt)
+                              , funs(min, mean, max)
+                              )
+```
+
+
+# `spread_each` - Spread Multiple Values
+
+The `spread_each` function works similar to the `tidyr::spread` function 
+but works for spreading out multiple values.
+
+### Example
+
+```{r spread_each_example}
+mtcars %>% 
+    count(gear, cyl) %>% 
+    group_by(gear) %>%
+    mutate(pct = n/sum(n)) %>% 
+    spread_each(cyl, n, pct)
+```
+
+
+# `.T` - Simple text specification
+
+Similar to lazy loading of the tidyverse, the `.T` function provides
+a simple way to designate arguments should be interpreted as text.
+The limiting factor is that the text must be syntactically correct, 
+however it come in very helpful.
+
+### Example
+
+```{r T_example}
+.T(first, second, 'a third argument with spaces')
+```
+
+
+# Inline functions
+
+The `short` package also provides many inline shortcuts.
+
+## Text concatenations
+
+* `%\\n%` - concatenate with a line break
+* `%<<%` - concatenate with a space
+* `%<<<%` - concatenate without space.
+
+## Pattern Matching
+
+* `%~%` - Matches the lhs pattern
+* `%!~%` - Does not match the lhs pattern
+
+## Other
+
+* `%or%` - Similar to the `rlang` or `purrr` function `%||%` but checks
+    on `length` rather than `is.null` so will give the right hand 
+    side for length 0 vectors as well.
+* `%inherits%` - inline version of `inherits`
+* `%is a%` - alternate inline version of `inherits`
+
+
+# String Filtering
+
+There are two convenience function for filtering character vectors, 
+`sift` and the filter out version `seive`.
+
+```{r}
+# limit to Mercs
+mtcars %>% rownames() %>% sift("^Merc")
+# Filter out everything starting with M
+mtcars %>% rownames() %>% sieve("^M")
+```
