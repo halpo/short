@@ -1,0 +1,17 @@
+Package: short
+Version: 2018.04.13 
+Date: 2018-04-13
+Title: A collection of shortcuts and time savers
+Authors@R: person("Andrew", "Redd", role = c("aut", "cre")
+                 , email = "Andrew.Redd@hsc.utah.edu"
+                 , comment = c(ORCID = "https://orcid.org/000-0002-6149-2438")
+                 )
+Maintainer: Andrew Redd <amredd@gmail.com>
+Description: 
+    A collection of shortcuts and time savers.
+License: MIT + file LICENSE
+Depends: R (>= 3.0.0), methods
+Imports: utils, magrittr, rlang, dplyr, purrr, assertthat, forcats,
+        glue, tidyr
+Suggests: dbplyr, openxlsx, wingui
+RoxygenNote: 6.0.1
