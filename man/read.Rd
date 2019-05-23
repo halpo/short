@@ -16,36 +16,36 @@ read(file, ..., verbose = FALSE, glob = TRUE)
 \item{glob}{interpret patterns as globs?}
 }
 \description{
-We often find that we are reading the same type of files over and 
+We often find that we are reading the same type of files over and
 over again.  Read is a lazy version of the read.* functions.
-It tries to intelligently pick the appropriate reader from 
+It tries to intelligently pick the appropriate reader from
 file extension or mime type info.
 }
 \details{
 read will first check if the file exists as specified.
-If the file is not found then it will check if the file 
-represents a pattern converted to a regular expression 
+If the file is not found then it will check if the file
+represents a pattern converted to a regular expression
 through \code{\link[utils]{glob2rx}} if glob=TRUE (default).
 Note that only one pattern can be considered if file is
-of length greater than 1 it will assume that exact file 
+of length greater than 1 it will assume that exact file
 names are given.
 
-If multiple files are given or found through pattern 
+If multiple files are given or found through pattern
 match then the results are given in a list, otherwise
-a single object is returned. For elements 
+a single object is returned. For elements
 of said list, as in the case of a single result,
-an attempt will be made to convert results to 
-tibbles through \code{\link[tibble]{as_tibble}}.
+an attempt will be made to convert results to
+a \link{tibble} through \code{\link[tibble]{as_tibble}}.
 
-Read will first look for readers 
+Read will first look for readers
 with the following priority
 \enumerate{
-  \item Known readers with the given name
-  \item Known readers registered to handle the given mime-type
-  \item Known readers registered to handle the given file extension
-  \item Any loaded function of the form \code{read.<<ext>>}
-  \item Any loaded function of the form \code{read_<<ext>>}
-  \item Any loaded function of the form \code{read<<ext>>}
+\item Known readers with the given name
+\item Known readers registered to handle the given mime-type
+\item Known readers registered to handle the given file extension
+\item Any loaded function of the form \code{read.<<ext>>}
+\item Any loaded function of the form \code{read_<<ext>>}
+\item Any loaded function of the form \code{read<<ext>>}
 }
 where \code{<<ext>>} is replaced by the extension of the file.
 }

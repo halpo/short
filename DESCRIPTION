@@ -1,5 +1,5 @@
 Package: short
-Version: 2018.04.13 
+Version: 2018.04.13
 Date: 2018-04-13
 Title: A collection of shortcuts and time savers
 Authors@R: person("Andrew", "Redd", role = c("aut", "cre")
@@ -9,9 +9,26 @@ Authors@R: person("Andrew", "Redd", role = c("aut", "cre")
 Maintainer: Andrew Redd <amredd@gmail.com>
 Description: 
     A collection of shortcuts and time savers.
+    An intelligent and extendable 'read' function.
+    Formatting classes to help with percents and confidence intervals.
+    A two-way descriptive statistics function for the notorious 'table_1', 
+    and a selection of other shortcuts to improve workflow.
 License: MIT + file LICENSE
+Encoding: UTF-8
+Language: en-US
+Roxygen: list(markdown = TRUE)
 Depends: R (>= 3.0.0), methods
-Imports: utils, magrittr, rlang, dplyr, purrr, assertthat, forcats,
-        glue, tidyr
-Suggests: dbplyr, openxlsx, wingui
-RoxygenNote: 6.0.1
+Imports: utils, 
+    magrittr, 
+    rlang, 
+    dplyr, 
+    purrr, 
+    assertthat, 
+    forcats,
+    glue, 
+    tidyr
+Suggests: dbplyr, 
+    openxlsx, 
+    testthat,
+    wingui
+RoxygenNote: 6.1.1

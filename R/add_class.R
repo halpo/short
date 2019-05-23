@@ -4,7 +4,8 @@
 #' @param new new characteristic
 #' 
 #' @description
-#' These function make using magrittr easier when altering an object.
+#' These function make using [magrittr] functions easier when altering 
+#' an object.
 #' 
 #' @export
 add_class <- function(x, new)structure(x, class = c(new, class(x)))

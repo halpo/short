@@ -25,7 +25,7 @@ function(new=NULL) {
     } else 
         return(getwd())
 }
-if(F){#! development
+if(FALSE){#! development
     setwd("P:\\ORD_GUNDLAPALLI_201007100D\\Stats\\MST-Stats\\MST-Templates Extraction")
     new <- "Emily-MST.lnk"
     mimetype(new)

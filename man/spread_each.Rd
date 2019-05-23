@@ -2,7 +2,7 @@
 % Please edit documentation in R/margins.R
 \name{spread_each}
 \alias{spread_each}
-\title{Spreach multiple variables}
+\title{Spread multiple variables}
 \usage{
 spread_each(data, key, ..., fill = NA, convert = FALSE, drop = FALSE,
   sep = ".")
@@ -34,13 +34,11 @@ conversion.}
 \item{drop}{If \code{FALSE}, will keep factor levels that don't appear in the
 data, filling in missing combinations with \code{fill}.}
 
-\item{sep}{If \code{NULL}, the column names will be taken from the values of
-\code{key} variable. If non-\code{NULL}, the column names will be given
-by "<key_name><sep><key_value>".}
+\item{sep}{the character to use to separate parts of column names.}
 
 \item{.}{The separator between the key levels and the value column names.}
 }
 \description{
-This is a multiple variable version of the tidyr function 
-\code{\link[tidyr]{spread}}.
+This is a multiple variable version of the function
+\code{\link[tidyr:spread]{tidyr::spread()}}.
 }

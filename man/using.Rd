@@ -11,16 +11,16 @@ using(..., install.missing = getOption("using::install.missing",
 \arguments{
 \item{...}{a list of packages to install, evaluated lazily.}
 
-\item{install.missing}{Should an attempt be made to install 
+\item{install.missing}{Should an attempt be made to install
 packages if they are not installed?}
 
 \item{quiet}{run without messages.}
 }
 \description{
-Load a list of libraries.  
+Load a list of libraries.
 If the library is not installed install it and load it.
-If using is called durring R startup, such as in a
-.Rprofile file append the package(s) to the defaultPackages 
+If using is called during R startup, such as in a
+\link{.Rprofile} file append the package(s) to the \code{"defaultPackages"}
 option to induce loading at the appropriate time.
 }
 \examples{

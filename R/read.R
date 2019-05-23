@@ -70,7 +70,7 @@ add_reader <- function(name, ...){
 #' a single object is returned. For elements 
 #' of said list, as in the case of a single result,
 #' an attempt will be made to convert results to 
-#' tibbles through \code{\link[tibble]{as_tibble}}.
+#' a [tibble] through \code{\link[tibble]{as_tibble}}.
 #' 
 #' Read will first look for readers 
 #' with the following priority
@@ -156,7 +156,7 @@ mimetype_windows <-
         return(rtn)
     }
 
-#' Mimetype
+#' MIME Type
 #' 
 #' Infer the mime type of a file, if on windows will attempt to 
 #' read the mime type info from the registry.

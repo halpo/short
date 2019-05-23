@@ -7,7 +7,7 @@
 with_margins(FUN, all.name = "(All)")
 }
 \arguments{
-\item{FUN}{the functino to wrap.}
+\item{FUN}{the function to wrap.}
 
 \item{all.name}{the string to use to represent that a variable was marginalized over.}
 }

@@ -1,7 +1,11 @@
 # short
 
-[![Build Status](https://travis-ci.org/haplo/short.svg?branch=master)](https://travis-ci.org/tidyverse/pivot)
+[![Build Status](https://travis-ci.org/haplo/short.svg?branch=master)](https://travis-ci.org/halpo/pivot)
 <!--[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/pivot)](https://cran.r-project.org/package=short)-->
+
+```{r setup, echo=FALSE, results='hide'}
+library(short)
+```
 
 # Overview
 
@@ -19,11 +23,11 @@ if not already installed.
 The `table_1` function can be used to generate a demographics and summary
 of variables; i.e. the veritable "Table 1" for publications.
 For each variable given, `table_1` calls `summarise_table_1` which 
-will summarise the variable for each value of a key, diferentiating 
+will summarize the variable for each value of a key, differentiating 
 variable, as well as overall.  For character and factor variables, 
 the counts and percentages of each level is given.
 For logical variables, the count of positives and the percentage is 
-given as the value.  Numeric Variables are summarised by the minimum, 
+given as the value.  Numeric Variables are summarized by the minimum, 
 median, mean, maximum, and standard deviation.
 
 Additional methods for table_1 can be added by adding methods to 
@@ -47,7 +51,7 @@ mtcars %>%
 
 # `with_margins` - add marginals to and computation.
 
-The `with_margins` function converts another function to opperate over 
+The `with_margins` function converts another function to operate over 
 all possible subsets of groups, including no groups.
 
 ### Example
@@ -82,7 +86,8 @@ mtcars %>%
 
 # `.T` - Simple text specification
 
-Similar to lazy loading of the tidyverse, the `.T` function provides
+Similar to lazy loading of the [`tidyverse`](https://tidyverse.org), 
+the `.T` function provides
 a simple way to designate arguments should be interpreted as text.
 The limiting factor is that the text must be syntactically correct, 
 however it come in very helpful.
@@ -106,8 +111,8 @@ The `short` package also provides many inline shortcuts.
 
 ## Pattern Matching
 
-* `%~%` - Matches the lhs pattern
-* `%!~%` - Does not match the lhs pattern
+* `%~%` - Matches the pattern on the left hand side.
+* `%!~%` - Does not match the pattern  on the left hand side.
 
 ## Other
 

@@ -86,12 +86,15 @@ table_1_dispatcher.character <- function(.data, var, name, key){
 }
 if(FALSE){#@Testing
     .data <- dplyr::mutate(iris, Size = ifelse(Sepal.Length > median(Sepal.Length), 'Big', 'Little'))
-    result <- table_1_dispatcher( .data, 'Species', 'SPECIES'
+    result <- table_1_dispatcher( .data
+                                , quo(Species)
+                                , 'SPECIES'
                                 , rlang::parse_quo('Size', env=globalenv())
                                 )
     expect_is(result, 'tbl')
     expect_equal(names(result), .T(Variable, Level, '(All)', Big, Little))
     expect_equal(nrow(result), 3)
+    expect_equal(unique(result$Variable), 'SPECIES')
 } 
 
 #' @rdname table_1
@@ -100,6 +103,9 @@ table_1_summarise <-
     function(.data, var, name, key)
         UseMethod("table_1_dispatcher", var)
 
+#' @rdname table_1
+#' @export
+table_1_summarize <- table_1_summarise
 
 #' @method table_1_summarise logical
 #' @export
@@ -150,13 +156,13 @@ table_1_summarise.character <- function(.data, var, name, key){
 if(FALSE){#@Testing
     .data <- dplyr::mutate(iris, Size = ifelse(Sepal.Length > median(Sepal.Length), 'Big', 'Little'))
     result <- table_1_summarise.character( .data
-                                         , var = rlang::as_quosure(as.name('Species'))
+                                         , var = quo(Species)
                                          , name='SPECIES'
                                          , rlang::parse_quo('Size', env=globalenv())
                                          )
     expect_is(result, 'tbl')
     expect_equal(names(result), .T(Variable, Level, '(All)', Big, Little))
-    expect_equal(result$Level, .T(setosa, versicolor, virginica))
+    expect_equal(result$Level, factor(.T(setosa, versicolor, virginica)))
     expect_equal(nrow(result), 3)
 } 
 
@@ -171,7 +177,7 @@ if(FALSE){#@Testing
                                     %>% ordered(.T(Small, Medium, Large)))
     assert_that(is.factor(.data$Size))
     result <- table_1_summarise.character( .data
-                                         , var = rlang::as_quosure(as.name('Size'))
+                                         , var = quo(Size)
                                          , name='SPECIES'
                                          , rlang::parse_quo('Species', env=globalenv())
                                          )

@@ -4,6 +4,7 @@
 \alias{table_1}
 \alias{table_1_dispatcher}
 \alias{table_1_summarise}
+\alias{table_1_summarize}
 \title{Create a Table 1}
 \usage{
 table_1(.data, key, ...)
@@ -11,6 +12,8 @@ table_1(.data, key, ...)
 table_1_dispatcher(.data, var, name, key)
 
 table_1_summarise(.data, var, name, key)
+
+table_1_summarize(.data, var, name, key)
 }
 \arguments{
 \item{.data}{a dataset}
@@ -24,13 +27,13 @@ table_1_summarise(.data, var, name, key)
 \item{name}{name of the variable}
 }
 \description{
-This helps creates the demographics table, 
+This helps creates the demographics table,
 the eponymous "table 1".
-Given a data set a key for columns, 
-describe the differences across the provided 
+Given a data set a key for columns,
+describe the differences across the provided
 factor variables between the levels of key.
 }
 \details{
-`table_1_summarise` and `table_1_dispatcher` dispatch on the data type of the 
-variable identified by `var` in `.data`
+\code{table_1_summarise} and \code{table_1_dispatcher} dispatch on the data type of the
+variable identified by \code{var} in \code{.data}
 }

@@ -21,7 +21,8 @@ set_comment(x, new)
 \item{new}{new characteristic}
 }
 \description{
-These function make using magrittr easier when altering an object.
+These function make using \link{magrittr} functions easier when altering
+an object.
 }
 \section{Functions}{
 \itemize{

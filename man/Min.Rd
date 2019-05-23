@@ -21,8 +21,8 @@ Median(..., na.rm = TRUE)
 \item{na.rm}{Remove missing?}
 }
 \description{
-These functions are for convenience and modify the original 
+These functions are for convenience and modify the original
 function to exclude missing by default.
-These are also highly useful to avoid warnings when converting to 
-SQL when using dbplyr functions and remote tables.
+These are also highly useful to avoid warnings when converting to
+SQL when using \link{dbplyr} functions and remote tables.
 }

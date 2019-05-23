@@ -14,7 +14,7 @@ if(F){
 #' Wrap a function to operate over groups and all possible
 #' marginals of groupings.
 #' 
-#' @param FUN the functino to wrap.
+#' @param FUN the function to wrap.
 #' @param all.name the string to use to represent that a variable was marginalized over.
 #' 
 #' @export
@@ -115,14 +115,16 @@ if(F){
     expect_equal(levels2(x), c('1','2','3'))
 }
 
-#' Spreach multiple variables
+#' Spread multiple variables
 #' 
-#' This is a multiple variable version of the tidyr function 
-#' \code{\link[tidyr]{spread}}.
+#' This is a multiple variable version of the function 
+#' [tidyr::spread()].
 #' 
 #' @inheritParams tidyr::spread
 #' @param ... the columns to act as the values to spread out.
 #' @param .   The separator between the key levels and the value column names.
+#' @param sep the character to use to separate parts of column names.
+#' 
 #' 
 #' @export
 spread_each <- 

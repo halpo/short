@@ -41,6 +41,6 @@ sieve(..., invert = TRUE)
 \item{...}{Passed on}
 }
 \description{
-sift filters the list to those matching the pattern.
-seive filters out those matching
+\code{sift} filters the list to elements matching the pattern.
+\code{sieve} filters them out.
 }

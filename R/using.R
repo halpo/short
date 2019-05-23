@@ -10,8 +10,8 @@ is_r_startup <- function(){
 #' 
 #' Load a list of libraries.  
 #' If the library is not installed install it and load it.
-#' If using is called durring R startup, such as in a
-#' .Rprofile file append the package(s) to the defaultPackages 
+#' If using is called during R startup, such as in a
+#' [.Rprofile] file append the package(s) to the `"defaultPackages"`
 #' option to induce loading at the appropriate time.
 #' 
 #' @param ... a list of packages to install, evaluated lazily.

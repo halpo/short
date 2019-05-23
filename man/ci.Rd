@@ -18,5 +18,5 @@ ci(estimate, lower, upper, confidence = 0.95, ...)
 \item{...}{other information such as}
 }
 \description{
-Create a `confidence-interval` object.
+Create a \code{confidence-interval} object.
 }

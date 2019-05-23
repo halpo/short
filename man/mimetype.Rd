@@ -2,7 +2,7 @@
 % Please edit documentation in R/read.R
 \name{mimetype}
 \alias{mimetype}
-\title{Mimetype}
+\title{MIME Type}
 \usage{
 mimetype(file)
 }
@@ -10,7 +10,7 @@ mimetype(file)
 \item{file}{file to get information for.}
 }
 \description{
-Infer the mime type of a file, if on windows will attempt to 
+Infer the mime type of a file, if on windows will attempt to
 read the mime type info from the registry.
 If a matching type cannot be found the generic
 "application/octet-stream" will be returned.

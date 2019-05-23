@@ -31,7 +31,7 @@ Combine count with a percent
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{x = logical,n = missing}: Count and give percent of `TRUE` from a logical vector.
+\item \code{x = logical,n = missing}: Count and give percent of \code{TRUE} from a logical vector.
 
 \item \code{x = logical,n = logical}: Count and percent of a logical filtered by a second logical.
 

@@ -1,7 +1,7 @@
 #' Filter a character vector
 #' 
-#' sift filters the list to those matching the pattern.
-#' seive filters out those matching
+#' `sift` filters the list to elements matching the pattern.
+#' `sieve` filters them out.
 #' 
 #' @inheritParams base::grepl
 #' @param ... Passed on
