@@ -1,8 +1,8 @@
 
 get_release_info <- function(pkg = '.'){
-    pkg <- devtools::as.package(pkg, FALSE)
+    requireNamespace('lubridate')
 
-    release.file <- file.path(pkg$path, "CRAN-RELEASE")
+    release.file <- file.path(pkg, "CRAN-RELEASE")
     assert_that(file.exists(release.file)
                , msg="Cannot find 'CRAN-RELEASE' file." )
 
@@ -35,7 +35,7 @@ git_show <- function(file, commit = 'HEAD'){
 #' 
 #' @param file the path to the "DESCRIPTION" file.
 #' @param ... passed to [read.dcf()].
-#' @param test optional to specify content as a character vector of lines.
+#' @param text optional to specify content as a character vector of lines.
 #' 
 #' @export
 read_description <- function(file, ..., text = NULL){
@@ -75,26 +75,30 @@ read_description <- function(file, ..., text = NULL){
 #' @export
 tag_release <-
 function( pkg = '.'
-        , commit = get_release_commit(pkg)
+        , commit = info$commit
         , ...
         , dev.version = TRUE
         , push = TRUE
         ){
+    assert_that( requireNamespace('lubridate')
+               , requireNamespace('git2r')
+               , dir.exists(pkg)
+               , file.exists(file.path(pkg, "DESCRIPTION"))
+               , file.exists(file.path(pkg, "CRAN-RELEASE"))
+               )
     info <- get_release_info(pkg)
 
     description <- read_description(text=git_show('DESCRIPTION', commit))
     version = description$version
-
-    assert_that(identical(pkg$package, description$package))
 
     tag = paste0("v", version)
     msg = "Version" %<<% version %<<% "released\n" %\%
           info$content[[1]] %\%
           "The version was tagged on" %<<% lubridate::today()
 
-    val <- git2r::tag(pkg$path, tag, msg, ...)
+    val <- git2r::tag(pkg, tag, msg, ...)
 
-    file.remove(file.path(pkg$path, "CRAN-RELEASE"))
+    file.remove(file.path(pkg, "CRAN-RELEASE"))
 
     if (dev.version) try(usethis::use_dev_version(pkg))
     if (push) try(git2r::push(pkg))

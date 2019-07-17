@@ -24,5 +24,5 @@ Median(..., na.rm = TRUE)
 These functions are for convenience and modify the original
 function to exclude missing by default.
 These are also highly useful to avoid warnings when converting to
-SQL when using \link{dbplyr} functions and remote tables.
+SQL when using \link[dbplyr:dbplyr-package]{dbplyr} functions and remote tables.
 }

@@ -4,8 +4,8 @@
 \alias{tag_release}
 \title{Tag a package release}
 \usage{
-tag_release(pkg = ".", commit = get_release_commit(pkg), ...,
-  dev.version = TRUE, push = TRUE)
+tag_release(pkg = ".", commit = info$commit, ..., dev.version = TRUE,
+  push = TRUE)
 }
 \arguments{
 \item{pkg}{the base directory of the package}

@@ -11,7 +11,7 @@ read_description(file, ..., text = NULL)
 
 \item{...}{passed to \code{\link[=read.dcf]{read.dcf()}}.}
 
-\item{test}{optional to specify content as a character vector of lines.}
+\item{text}{optional to specify content as a character vector of lines.}
 }
 \description{
 Read a package "DESCRIPTION" file, returning
