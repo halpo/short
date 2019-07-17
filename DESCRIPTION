@@ -18,16 +18,24 @@ Encoding: UTF-8
 Language: en-US
 Roxygen: list(markdown = TRUE)
 Depends: R (>= 3.0.0), methods
-Imports: utils, 
-    magrittr, 
-    rlang, 
-    dplyr, 
-    purrr, 
+Imports: 
     assertthat, 
+    dplyr, 
     forcats,
     glue, 
-    tidyr
-Suggests: dbplyr, 
+    lubridate,
+    magrittr, 
+    pkgcond,
+    purrr, 
+    rlang, 
+    stringi,
+    tibble,
+    tidyr,
+    usethis,
+    utils 
+Suggests: dbplyr,
+    devtools,
+    git2r,
     openxlsx, 
     testthat,
     wingui
